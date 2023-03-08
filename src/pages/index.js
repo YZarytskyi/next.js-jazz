@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import Contacts from './contacts'
+import Contacts from '../ui/contacts';
+// import Movies from '../ui/Home/Movies';
+// import SearchInput from '../ui/Home/SearchInput';
 
-export default function Home() {
+export default function Home({projectTypes}) {
   return (
     <>
       <Head>
@@ -11,8 +13,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Contacts />        
+        {/* <SearchInput /> */}
+        {/* <Movies /> */}
+        <Contacts projectTypes={projectTypes}/> 
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  // Instead of fetching your `/api` route you can call the same
+  // function directly in `getStaticProps`
+  // const posts = await loadPosts()
+  const projectTypes = ["Villa", "Residential", "Office", "Other"];
+
+  // Props returned will be passed to the page component
+  return {
+    props: {projectTypes},
+  }
 }

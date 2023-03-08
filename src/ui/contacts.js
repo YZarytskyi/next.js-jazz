@@ -1,9 +1,8 @@
 import { useState } from "react";
 
 const PRICE_PER_ITEM = 100;
-const projectTypes = ["Villa", "Residential", "Office", "Other"];
 
-const Contacts = () => {
+const Contacts = ({projectTypes}) => {
   // const [activeProjectType, setActiveProjectType] = useState("villa");
   const [aerial, setAerial] = useState(1);
   const [exterior, setExterior] = useState(0);
@@ -149,14 +148,5 @@ const Contacts = () => {
     </section>
   );
 };
-
-// export async function getServerSideProps() {
-//   const res = await fetch(`https://.../data`)
-//   const data = await res.json()
-
-//   return {
-//     props: {},
-//   }
-// }
 
 export default Contacts;
